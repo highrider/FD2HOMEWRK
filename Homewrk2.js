@@ -1,7 +1,8 @@
 //Homework 2
 function halfReverseArr(num){
-	debugger;
+	// debugger;
 	var arr = [];
+	var medium = num/2;
 	for(let i = 0; i < num; i++){
 		arr.push(Math.floor(Math.random()*(20-0+1))+0);
 	}
@@ -18,30 +19,31 @@ function halfReverseArr(num){
 		return arr;
 	}
 	else if(arr.length % 2 != 0){
-	for(let j = 0; j < Math.floor(arr.length/2); j++){
+	for(let j = 0; j < Math.floor(medium); j++){
 		a = arr[j];
-		b = arr[j + Math.floor(arr.length/2) + 1];
+		b = arr[j + Math.floor(medium) + 1];
 		arr[j] = b;
-		arr[j + Math.floor(arr.length/2) + 1] = a;
+		arr[j + Math.floor(medium) + 1] = a;
 	}
 	return arr;
 	}
 	else{
-		for(let j = 0; j < arr.length/2 - 1; j++){
+		for(let j = 0; j < arr.length/2; j++){
 			a = arr[j];
-			b = arr[j + arr.length/2 + 1];
+			b = arr[j + medium];
 			arr[j] = b;
-			arr[j +arr.length/2 + 1] = a;
+			arr[j + medium] = a;
 		}
 		return arr;
 	}
 }
-halfReverseArr(2);
+halfReverseArr(6);
 
 
 function smartReverseArr(num){
-	debugger;
+	// debugger;
 	var arr = [];
+	var medium = num/2;
 	for(let i = 0; i < num; i++){
 		arr.push(Math.floor(Math.random()*(20-0+1))+0);
 	}
@@ -57,20 +59,33 @@ function smartReverseArr(num){
 		arr[1] = a;
 		return arr;
 	}
-	else{
+	else if(arr.length % 2 === 0){
 	for(let j = 0; j < Math.round(arr.length/4); j++){
 		a = arr[j];
-		b = arr[arr.length/2 - (1 + j)];
-		c = arr[j + arr.length/2];
+		b = arr[medium - (1 + j)];
+		c = arr[j + medium];
 		d = arr[arr.length - (j + 1)];
 		arr[j] = b;
-		arr[arr.length/2 - (j + 1)] = a;
+		arr[medium - (j + 1)] = a;
 		arr[arr.length - (j + 1)] = c;
-		arr[arr.length/2 + j] = d;
+		arr[medium + j] = d;
 		console.log("a");
 		}
 	return arr;
 	}
+	else{
+		for(let j = 0; j < Math.round(arr.length/4); j++){
+			a = arr[j];
+			b = arr[Math.floor(medium) - (j + 1)];
+			c = arr[Math.floor(medium) + (j +1)];
+			d = arr[arr.length - (j + 1)];
+			arr[j] = b;
+			arr[Math.floor(medium) - (j + 1)] = a;
+			arr[Math.floor(medium) + (j + 1)] = d;
+			arr[arr.length - (j + 1)] = c;
+	}
+	}
+	return arr;
 }
 
-smartReverseArr(8);
+smartReverseArr(7);
