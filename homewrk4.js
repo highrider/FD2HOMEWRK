@@ -152,7 +152,7 @@ anna.getMaried(john);
     	console.log(counter);
 
     }
-    vowelCounter("Ёжик лучший друг марины");
+    vowelCounter("Лёва лучший друг марины");
 
 
 //drinkmap
