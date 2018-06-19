@@ -1,0 +1,118 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body class = "body">
+  <div class="node">Пользователи:</div>
+  	<ul class="ul">
+    <li>Маша</li>
+    <li class="top">Вовочка</li>
+  </ul>
+
+  <!-- комментарий -->
+
+  <script>
+   let offset = '  ';
+ function domElements(node) {
+  offset += ' ';
+     while (node) {
+         if (1 == node.nodeType) {
+             console.log(offset + node.tagName);
+         };
+          domElements(node.firstChild);
+
+          node = node.nextSibling;
+     };
+ };
+ 
+  domElements(document.documentElement);
+ var i = 0;
+function power(num, exp){
+if(exp ===1){
+	return num;
+}
+else{
+	return num * power(num, exp - 1);
+}
+}
+power(8, 2);
+
+}
+
+
+// // map
+//     function vowelCounter(str) {
+//         var  test = ["Ё", "ё", "у", "У", "е", "Е", "ы", "Ы", "а", "А", "о", "О", "э", "Э", "я", "Я","и", "И", "ю", "Ю"];
+//         var arr = str.split("");
+//         var counter = 0;
+//         arr.map(function(elem){
+//             if(test.includes(elem)){
+//                 counter++;
+//             }
+//         })
+//         console.log(counter);
+
+//     }
+//     vowelCounter("Ёжик лучший друг марины");
+
+//     //withot array methods
+//     function vowelCounter(str) {
+//         var  test = ["Ё", "ё", "у", "У", "е", "Е", "ы", "Ы", "а", "А", "о", "О", "э", "Э", "я", "Я","и", "И", "ю", "Ю"];
+//         var counter = 0;
+//         for(var i = 0; i < str.length; i++){
+//             if(test.includes(str.charAt(i))){
+//                 counter++;
+//             }
+//         }
+//         console.log(counter);
+
+//     }
+//     vowelCounter("Ёжик лучший друг марины");
+
+// // forEach method
+//     function vowelCounter(str) {
+//         var  test = ["Ё", "ё", "у", "У", "е", "Е", "ы", "Ы", "а", "А", "о", "О", "э", "Э", "я", "Я","и", "И", "ю", "Ю"];
+//         var arr = str.split("");
+//         var counter = 0;
+//         arr.forEach(function(elem){
+//             if(test.includes(elem)){
+//                 counter++;
+//             }
+//         })
+//         console.log(counter);
+
+//     }
+//     vowelCounter("Ёжик лучший друг марины");
+
+//     //reduce method
+// function vowelCounter(str) {
+//         var  test = ["Ё", "ё", "у", "У", "е", "Е", "ы", "Ы", "а", "А", "о", "О", "э", "Э", "я", "Я","и", "И", "ю", "Ю"];
+//         var arr = str.split("");
+//         var result = arr.filter(function(eee, current, index){
+//             if(test.includes(current)){
+//                 return ++eee
+//             }
+//             return eee
+//         }, 1);
+//         console.log(result)
+
+//     }
+//     vowelCounter("Ёжик лучший друг марины ура блин");
+
+//     // filter method
+// function vowelCounter(str) {
+//         var  test = ["Ё", "ё", "у", "У", "е", "Е", "ы", "Ы", "а", "А", "о", "О", "э", "Э", "я", "Я","и", "И", "ю", "Ю"];
+//         var arr = str.split("");
+//         var result = arr.filter(word => test.includes(current));
+//         console.log(result)
+
+//     }
+//     vowelCounter("Ёжик лучший друг марины ура блин");
+  </script>
+
+</body>
+
+</html>
+
