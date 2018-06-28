@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style type="text/css">
+		#clock {
+	position: relative;
+	width: 378px;
+	height: 378px;
+	background-image: url('https://github.com/antoniocapelo/quickies/blob/master/analog-clock/images/clockFace.png?raw=true');
+	left: 50%;
+	text-align: center;
+	margin: 40px 0 0 -189px;
+
+}
+		#secondhand {
+			position: absolute;
+			z-index: 5;
+			top:58px;
+			left: 181px;
+			-webkit-transform-origin: 50% 95%;
+			-moz-transform-origin: 50% 95%;
+			transform-origin: 50% 95%;
+		}
+		#minutehand, #hourhand {
+			position: absolute;
+			z-index: 0;
+			-webkit-transform-origin: 50% 100%;
+			-moz-transform-origin: 50% 100%;
+			transform-origin: 50% 100%;
+		}
+		#minutehand {
+	/*top:50px;*/
+	top: 74px;
+	left: 187px;
+}
+
+#hourhand {
+	top:90px;
+  left:187px;
+}
+#time {
+	top: 200 px;
+	left: 300px;
+}
+	</style>
+	<div class="content">
+
+  <div id="clock">
+    <img src="https://github.com/antoniocapelo/quickies/blob/master/analog-clock/images/secondHand.png?raw=true" id="secondhand">
+    <img src="https://github.com/antoniocapelo/quickies/blob/master/analog-clock/images/minuteHand.png?raw=true" id="minutehand">
+    <img src="https://github.com/antoniocapelo/quickies/blob/master/analog-clock/images/hourHand.png?raw=true" id="hourhand">
+  </div>
+ <div id="time"></div>
+</div>
+
+
+<script type="text/javascript">
+	var timing = document.getElementById('time');
+	var d =new Date();
+	const second = document.getElementById('secondhand');
+	const minute = document.getElementById('minutehand');
+	const hour = document.getElementById('hourhand');
+
+ window.onload = function() {
+		window.setInterval(
+			function() {
+			var date = new Date();
+			second.style.transform += "rotate(6deg)";
+			minute.style.transform += "rotate(6/60deg)";
+			hour.style.transform += "rotate(0,0017deg)";
+			}
+		,1000);
+}
+</script>
+</body>
+</html>

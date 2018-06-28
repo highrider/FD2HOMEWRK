@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>dynamic form</title>
+</head>
+<body>
+	<style>
+#hello::-webkit-input-placeholder {
+  color: blue;
+  font-style: italic;
+  right: 115px;
+}
+</style>
+	<script type="text/javascript">
+var formDef1=
+[
+  {label:'Название сайта:',kind:'longtext',name:'sitename'},
+  {label:'URL сайта:',kind:'longtext',name:'siteurl'},
+  {label:'Посетителей в сутки:',kind:'number',name:'visitors'},
+  {label:'E-mail для связи:',kind:'shorttext',name:'email'},
+  {label:'Рубрика каталога:',kind:'combo',name:'division',
+    variants:[{text:'здоровье',value:1},{text:'домашний уют',value:2},{text:'бытовая техника',value:3}]},
+  {label:'Размещение:',kind:'radio',name:'payment',
+    variants:[{text:'бесплатное',value:1},{text:'платное',value:2},{text:'VIP',value:3}]},
+  {label:'Разрешить отзывы:',kind:'check',name:'votes'},
+  {label:'Описание сайта:',kind:'memo',name:'description'},
+  {label:'Опубликовать:',kind:'submit'},
+];
+
+var formDef2=
+[
+  {label:'Фамилия:',kind:'longtext',name:'lastname'},
+  {label:'Имя:',kind:'longtext',name:'firstname'},
+  {label:'Отчество:',kind:'longtext',name:'secondname'},
+  {label:'Возраст:',kind:'number',name:'age'},
+  {label:'Зарегистрироваться:',kind:'submit'},
+];
+
+formDef1.forEach(thisFunc);
+function thisFunc(obj) {
+	if(obj.kind === 'longtext'){
+		let textLabel = document.createElement('label');
+		textLabel.innerHTML += obj.label;
+		document.body.appendChild(textLabel);
+		let textInput = document.createElement('input');
+		textInput.setAttribute('type', 'text');
+		textInput.style.width = '300px';
+		textLabel.appendChild(textInput);
+		textInput.setAttribute('name', obj.name);
+		document.body.innerHTML += '</br>';
+
+	}
+	else if(obj.kind === 'number'){
+		let textLabel = document.createElement('label');
+		textLabel.innerHTML += obj.label;
+		document.body.appendChild(textLabel);
+		let textInput = document.createElement('input');
+		textInput.setAttribute('type', 'number');
+		textInput.style.width = '100px';
+		textLabel.appendChild(textInput);
+		textInput.setAttribute('name', obj.name);
+		document.body.innerHTML += '</br>';
+	}
+	else if(obj.kind === 'shorttext'){
+		let textLabel = document.createElement('label');
+		textLabel.innerHTML += obj.label;
+		document.body.appendChild(textLabel);
+		let textInput = document.createElement('input');
+		textInput.setAttribute('type', 'email');
+		textInput.style.width = '200px';
+		textLabel.appendChild(textInput);
+		textInput.setAttribute('name', obj.name);
+		document.body.innerHTML += '</br>';
+	}
+	else if(obj.kind === 'combo'){
+		let textLabel = document.createElement('label');
+		textLabel.innerHTML += obj.label;
+		document.body.appendChild(textLabel);
+		let textInput = document.createElement('select');
+		textInput.setAttribute('type', '');
+		textLabel.appendChild(textInput);
+		textInput.setAttribute('name', obj.name);
+		for(let i = 0; i < obj.variants.length; i++){
+			for(let j in obj.variants[i]){
+				if(j === 'text'){
+				let option = document.createElement('option');
+				textInput.appendChild(option);
+				option.innerHTML += obj.variants[i][j];
+				option.setAttribute('name', j);
+			}
+			}
+			}
+			document.body.innerHTML += '</br>';
+		}
+		else if(obj.kind === 'radio'){
+			var textLabelr = document.createElement('label');
+			textLabelr.innerHTML += obj.label;
+			document.body.appendChild(textLabelr);
+			for(let i = 0; i < obj.variants.length; i++){
+			for(let j in obj.variants[i]){
+				if(j === 'text'){
+				let radioText = document.createElement('label');
+				textLabelr.appendChild(radioText);
+				radioText.innerHTML += obj.variants[i][j];
+				// alert(obj.variants[i][j]);
+			}
+			else{
+				let radio = document.createElement('input');
+				textLabelr.appendChild(radio);
+				radio.setAttribute('name', j);
+				radio.setAttribute('type', 'radio');
+			}
+			}
+		}
+		document.body.innerHTML += '</br>';
+	}
+	else if(obj.kind === 'check'){
+		let textLabel = document.createElement('label');
+		textLabel.innerHTML += obj.label;
+		document.body.appendChild(textLabel);
+		let textInput = document.createElement('input');
+		textInput.setAttribute('type', 'checkbox');
+		textLabel.appendChild(textInput);
+		textInput.setAttribute('name', obj.name);
+		document.body.innerHTML += '</br>';
+	}
+	else if(obj.kind === 'memo'){
+		let textLabel = document.createElement('label');
+		textLabel.innerHTML += obj.label;
+		document.body.appendChild(textLabel);
+		textLabel.innerHTML += '</br>';
+		let textInput = document.createElement('textarea');
+		textLabel.appendChild(textInput);
+		document.body.innerHTML += '</br>';
+ 		
+	}
+	else if(obj.kind === 'submit'){
+		let textLabel = document.createElement('input');
+		textLabel.innerHTML +=  obj.label;
+		textLabel.setAttribute('type', 'submit');
+		document.body.appendChild(textLabel);
+		document.body.innerHTML += '</hr>';
+	}
+
+}
+	</script>
+</body>
+</html>

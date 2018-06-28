@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div>
+    <label type="text">Разработчики:</label>
+    <input type="text" name="longtext" id='developers'></input>
+    <div id='devs-error'></div>
+  </div>
+    <div>
+    <label type="text">Название сайта:</label>
+    <input type="text" name="longtext" id="sitename">
+    <div id='site-name-error'></div>
+  </div>
+  <div>
+    <label type="number">Дата запуска сайта:</label>
+    <input type="text" name="longtext" id="date">
+    <div id='date-error'></div>
+    </div>
+    <div>
+    <label type="number">Посетителей в сутки:</label>
+    <input type="text" name="longtext" id="visitors">
+    <div id='visitors-error'></div>
+    </div>
+    <div>
+    <label type="email">E-mail для связи:</label>
+    <input type="text" name="longtext" id='email'>
+    <div id='email-error'></div>
+    </div>
+    <div>
+    <label type="text">Рубрика:</label>
+    <select>
+      <option value="1">здоровье</option>
+      <option value="2">Домашний уют</option>
+      <option value="3">Бытовая техника</option>
+    </select>
+    </div>
+    <div>
+      <label type="text">Размещение:</label>
+      <input type="radio" name="dgdgf" id="radio1">dsdgfdfd
+      <input type="radio" name="dgdgf" id="radio2">dsdgfdfd
+      <input type="radio" name="dgdgf" id="radio3">dsdgfdfd
+      <div id='radio-error'></div>
+    </div>
+    <div>
+    <label type="text">Разрешить отзывы:</label>
+      <input type="checkbox" name="dgdgf">dsdgfdfd
+      <div id='check-error'></div>
+    </div>
+    <div>
+    <label type="text">Описание:</label>
+    </div>
+    <div>
+    <textarea id="description"></textarea>
+    <div id='description-error'></div>
+    </div>  
+    <input type="submit" name="wkfwjkdbf" id="submit">
+
+
+
+<script type="text/javascript">
+  const submit = document.getElementById('submit');
+  const devs = document.getElementById('developers');
+  const devsError = document.getElementById('devs-error');
+  const sitename = document.getElementById('sitename');
+  const siteError = document.getElementById('site-name-error');
+  const date = document.getElementById('date');
+  const dateErr = document.getElementById('date-error');
+  const email = document.getElementById('email');
+  const emailErr = document.getElementById('email-error')
+  const visitors = document.getElementById('visitors');
+  const visitorsErr = document.getElementById('visitors-error');
+  const radio1 = document.getElementById('radio1');
+  const radio2 = document.getElementById('radio2');
+  const radio3 = document.getElementById('radio3');
+  const radioErr = document.getElementById('radio-error');
+  const description = document.getElementById('description');
+  const descriptionErr = document.getElementById('description-error');
+
+
+  submit.addEventListener('click', function(e) {
+    if(!devs.value){
+      devsError.style.display = "inline-block";
+      devs.style.border = "1px solid black";
+      devs.value = '';
+      devsError.innerHTML = "";
+      devsError.style.color = 'red';
+      devsError.innerHTML += "<span>Это поле не может быть пустым</span>";
+      devs.style.border = "1px solid red";
+      devs.focus();
+    }
+    else{
+      devsError.innerHTML = "";
+      devs.style.border = "1px solid black";
+    }
+
+    if(!sitename.value){
+      siteError.style.display = "inline-block";
+      sitename.style.border = "1px solid black";
+      sitename.value = '';
+      siteError.innerHTML = "";
+      siteError.style.color = 'red';
+      siteError.innerHTML += "<span>Это поле не может быть пустым</span>";
+      sitename.style.border = "1px solid red";
+      sitename.focus();
+    }
+    else{
+      siteError.innerHTML = "";
+      sitename.style.border = "1px solid black";
+    }
+
+    if(!date.value){
+      dateErr.style.display = "inline-block";
+      date.style.border = "1px solid black";
+      date.value = '';
+      dateErr.innerHTML = "";
+      dateErr.style.color = 'red';
+      dateErr.innerHTML += "<span>Это поле не может быть пустым</span>";
+      date.style.border = "1px solid red";
+      date.focus();
+    }
+    else{
+      dateErr.innerHTML = "";
+      date.style.border = "1px solid black";
+    }
+
+    if(!visitors.value){
+      visitorsErr.style.display = "inline-block";
+      visitors.style.border = "1px solid black";
+      visitors.value = '';
+      visitorsErr.innerHTML = "";
+      visitorsErr.style.color = 'red';
+      visitorsErr.innerHTML += "<span>Это поле не может быть пустым</span>";
+      visitors.style.border = "1px solid red";
+      visitors.focus();
+    }
+    else{
+      visitorsErr.innerHTML = "";
+      visitors.style.border = "1px solid black";
+    }
+
+
+
+    if(!email.value || !email.value.split('').includes("@")){
+      emailErr.style.display = "inline-block";
+      email.style.border = "1px solid black";
+      email.value = '';
+      emailErr.innerHTML = "";
+      emailErr.style.color = 'red';
+      emailErr.innerHTML += "<span>Это поле не может быть пустым</span>";
+      email.style.border = "1px solid red";
+      email.focus();
+    }
+    else{
+      emailErr.innerHTML = "";
+      email.style.border = "1px solid black";
+    }
+    if(!radio1.checked && !radio2.checked && !radio3.checked){
+      radioErr.style.display = "inline-block";
+      radioErr.innerHTML = "";
+      radioErr.style.color = 'red';
+      radioErr.innerHTML += "<span>Нужно выбрать хотя бы один вариант</span>";
+      radio1.focus();
+    }
+    else{
+     radioErr.innerHTML = "";
+    }
+
+    if(!description.value){
+      descriptionErr.style.display = "inline-block";
+      description.style.border = "1px solid black";
+      description.value = '';
+      descriptionErr.innerHTML = "";
+      descriptionErr.innerHTML += "<span>Это поле не может быть пустым</span>";
+      descriptionErr.style.color = 'red';
+      description.style.border = "1px solid red";
+      description.focus();
+    }
+    else{
+      descriptionErr.innerHTML = "";
+      description.style.border = "1px solid black";
+    }
+
+    console.log(radio1)
+
+  })
+
+
+  
+</script>
+  </div>
+  
+</body>
+</html>
